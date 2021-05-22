@@ -1,0 +1,39 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary">
+    <button *ngIf="isHandset$ | async" mat-icon-button (click)="sidnav.toggle()">
+      <mat-icon style="color: aliceblue">menu</mat-icon>
+    </button>
+    <strong>BRIKZ</strong>
+    <span fxFlex></span>
+    <button mat-icon-button (click)="changeTheme()"
+      [matTooltip]="!isDarkMode ? 'Turn dark mode On' : 'Turn dark mode Off'">
+      <mat-icon>brightness_medium</mat-icon>
+    </button>
+    <button mat-icon-button (click)="logOut()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #sidnav class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)" [fixedInViewport]="mobileQuery.matches" fixedTopGap="0">
+      <app-side-bar></app-side-bar>
+    </mat-sidenav>
+    <mat-sidenav-content style="overflow: hidden; height: 100vh">
+      <!-- <ng-progress
+        [direction]="'ltr+'"
+        [speed]="200"
+        [trickleSpeed]="300"
+        [spinner]="false"
+        [thick]="false"
+        [meteor]="true"
+        [color]="'#f68d17'"
+        [ease]="'linear'"
+        [fixed]="true"
+      ></ng-progress> -->
+      <div style="width: 100%; overflow: auto" fxLayout="column">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

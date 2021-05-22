@@ -1,0 +1,30 @@
+h1.example-app-name {
+  margin-left: 8px;
+  padding: 10px;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 4px;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mat-drawer-side {
+  border-right: none;
+  box-shadow: 1px 0px #9898982b;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}

@@ -1,0 +1,22 @@
+<div
+  class="not-found-container"
+  fxLayout="column"
+  fxLayoutAlign="start center"
+  fxLayoutAlign.lt-md="center center"
+  fxLayoutGap="20px"
+>
+  <div class="image-part">
+    <img src="assets/404.png" />
+  </div>
+  <div class="button-part">
+    <span style="text-align: center"
+      ><em
+        >La page que vous essayez de voir n’existe pas ou a été déplacée.
+        Essayez de revenir à notre page d’accueil.</em
+      ></span
+    >
+  </div>
+  <button mat-button [routerLink]="['/shell']" color="primary">
+    Aller à la page d’accueil
+  </button>
+</div>
