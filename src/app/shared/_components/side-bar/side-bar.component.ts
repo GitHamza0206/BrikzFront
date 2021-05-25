@@ -15,7 +15,27 @@ export class SideBarComponent implements OnInit {
     },
     {
       icon: 'car-electric',
-      name: 'First',
+      name: 'Locaux',
+      route: '',
+      children: [
+        {
+          icon: 'plus',
+          name: `Liste`,
+          route: 'locaux/liste',
+          children: [],
+        },
+        {
+          icon: 'car-electric',
+          name: 'Recherche',
+          route: 'locaux/recherche',
+          children: [],
+        },
+      ],
+    },
+
+    {
+      icon: 'car-electric',
+      name: 'Candidature',
       route: '',
       children: [
         {
@@ -32,6 +52,27 @@ export class SideBarComponent implements OnInit {
         },
       ],
     },
+
+    {
+      icon: 'car-electric',
+      name: 'Cartographie',
+      route: '',
+      children: [
+        {
+          icon: 'plus',
+          name: `First child`,
+          route: 'dashboard',
+          children: [],
+        },
+        {
+          icon: 'car-electric',
+          name: 'secend child',
+          route: 'dashboard',
+          children: [],
+        },
+      ],
+    },
+
   ];
   constructor() {}
   ngOnInit(): void {}
