@@ -13,6 +13,11 @@ const routes: Routes = [
         path: 'dashboard',
         component: DashboardComponent,
       },
+      {
+        path: 'locaux',
+        loadChildren: () =>
+          import('../locaux/locaux.module').then((m) => m.LocauxModule),
+      },
     ],
   },
 ];

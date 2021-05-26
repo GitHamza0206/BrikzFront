@@ -3,12 +3,8 @@
     <ng-container *ngFor="let page of pages">
       <ng-container *ngIf="page?.children?.length === 0; else hasChild">
         <mat-nav-list>
-          <mat-list-item
-            routerLinkActive="active"
-            [routerLink]="page.route"
-            class="list-items"
-          >
-            <mat-icon [svgIcon]="page.icon"></mat-icon>
+          <mat-list-item routerLinkActive="active" [routerLink]="page.route" class="list-items">
+            <mat-icon>{{page.icon}}</mat-icon>
             <span>{{ page.name }}</span>
           </mat-list-item>
         </mat-nav-list>
@@ -17,21 +13,15 @@
         <mat-accordion>
           <mat-expansion-panel class="mat-elevation-z0">
             <mat-expansion-panel-header>
-              <mat-icon
-                [svgIcon]="page.icon"
-                style="margin-right: 8px"
-              ></mat-icon>
+              <mat-icon style="margin-right: 8px">
+                {{page.icon}}
+              </mat-icon>
               {{ page.name }}
             </mat-expansion-panel-header>
             <mat-nav-list>
-              <mat-list-item
-                *ngFor="let child of page.children"
-                routerLinkActive="active"
-                [routerLink]="child.route"
-                class="list-items"
-                [disabled]="child?.disabled"
-              >
-                <mat-icon [svgIcon]="child.icon"></mat-icon>
+              <mat-list-item *ngFor="let child of page.children" routerLinkActive="active" [routerLink]="child.route"
+                class="list-items" [disabled]="child?.disabled">
+                <mat-icon> {{child.icon}}</mat-icon>
                 <span>{{ child.name }}</span>
               </mat-list-item>
             </mat-nav-list>

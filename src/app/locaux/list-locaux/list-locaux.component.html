@@ -1,0 +1,97 @@
+<div fxLayout="row" fxLayoutAlign="start start" style="width: 100%; height: calc(100vh - 60px)">
+  <div fxFlex style="width: 100%; height: 100%">
+    <mat-toolbar class="sticky-header" style="height: 45px">
+      <span style="font-size: smaller">
+        Liste des locaux</span>
+      <span fxFlex></span>
+      <mat-paginator [length]="dataSource?.count" [pageSize]="100" [pageSizeOptions]="[25, 50, 100]"
+        showFirstLastButtons>
+      </mat-paginator>
+      <button mat-icon-button matTooltip="Actualiser la liste" (click)="this.search$.next()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </mat-toolbar>
+    <div fxLayout="column" style="height: calc(100vh - 105px); overflow: auto">
+      <div fxFlex fxLayout="column" class="sticky-header-container">
+        <table mat-table [dataSource]="dataSource.data" class="hoverable w-100">
+          <ng-container matColumnDef="DateCreation">
+            <th mat-header-cell *matHeaderCellDef>Date Création</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.createdAt | date: "dd/MM/yyyy à hh:mm" }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="raisonSocialExp">
+            <th mat-header-cell *matHeaderCellDef>Raison Social Expert</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.raisonSocialExp ||"-" }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="raisonSocial">
+            <th mat-header-cell *matHeaderCellDef>Raison Social Garage</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.raisonSocial ||"-" }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="tel">
+            <th mat-header-cell *matHeaderCellDef>Télephone Garage</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.tel ||"-" }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="adress">
+            <th mat-header-cell *matHeaderCellDef>Adress Garage</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.adress ||"-" }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="login">
+            <th mat-header-cell *matHeaderCellDef>Login</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.login ||"-" }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="numDossier">
+            <th mat-header-cell *matHeaderCellDef>Num Dossier</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.numDossier ||"-" }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="numMission">
+            <th mat-header-cell *matHeaderCellDef>Num Mission</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.numMission ||"-" }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="codeSociete">
+            <th mat-header-cell *matHeaderCellDef>Code Societe</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.codeSociete ||"-" }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Email Garage</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.email ||"-" }}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+        <div class="p-3" fxLayout="row" fxLayoutAlign="center center" style="height: 100%">
+          <ng-container *ngIf="!isLoading; else loadingTemplate">
+            <ng-container *ngIf="error; else emptyTemplate">
+              <mat-error>{{ error }}</mat-error>
+            </ng-container>
+            <ng-template #emptyTemplate>
+              <p *ngIf="dataSource?.count === 0">Aucune element .</p>
+            </ng-template>
+          </ng-container>
+          <ng-template #loadingTemplate>
+            <mat-spinner mode="indeterminate" [diameter]="32"> </mat-spinner>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

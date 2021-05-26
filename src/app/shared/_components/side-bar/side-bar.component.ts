@@ -8,24 +8,24 @@ import { Component, OnInit } from '@angular/core';
 export class SideBarComponent implements OnInit {
   pages: Page[] = [
     {
-      icon: 'view-dashboard-outline',
+      icon: 'dashboard',
       name: 'Dashboard',
       route: 'dashboard',
       children: [],
     },
     {
-      icon: 'car-electric',
+      icon: 'maps_home_work',
       name: 'Locaux',
       route: '',
       children: [
         {
-          icon: 'plus',
+          icon: 'list',
           name: `Liste`,
-          route: 'locaux/liste',
+          route: 'locaux/list',
           children: [],
         },
         {
-          icon: 'car-electric',
+          icon: 'search',
           name: 'Recherche',
           route: 'locaux/recherche',
           children: [],
@@ -34,45 +34,18 @@ export class SideBarComponent implements OnInit {
     },
 
     {
-      icon: 'car-electric',
+      icon: 'recent_actors',
       name: 'Candidature',
-      route: '',
-      children: [
-        {
-          icon: 'plus',
-          name: `First child`,
-          route: 'dashboard',
-          children: [],
-        },
-        {
-          icon: 'car-electric',
-          name: 'secend child',
-          route: 'dashboard',
-          children: [],
-        },
-      ],
+      route: 'Candidature',
+      children: [],
     },
 
     {
-      icon: 'car-electric',
+      icon: 'room',
       name: 'Cartographie',
-      route: '',
-      children: [
-        {
-          icon: 'plus',
-          name: `First child`,
-          route: 'dashboard',
-          children: [],
-        },
-        {
-          icon: 'car-electric',
-          name: 'secend child',
-          route: 'dashboard',
-          children: [],
-        },
-      ],
+      route: 'Cartographie',
+      children: [],
     },
-
   ];
   constructor() {}
   ngOnInit(): void {}

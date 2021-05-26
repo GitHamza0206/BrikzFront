@@ -14,13 +14,13 @@ export function confirmDialog(
     noText: noText,
     yesText: yesText,
     questionInHtml: message,
-    includesInput: false
+    includesInput: false,
   };
   return dialog
     .open(ConfirmationDialogComponent, {
       width: '400px',
       data: data,
-      disableClose: true
+      disableClose: true,
     })
     .afterClosed();
 }
@@ -68,4 +68,9 @@ export function objectNullValueSanitizer(obj: any) {
     return undefined;
   }
   return obj;
+}
+
+export interface GenericDataSource<T> {
+  data: T[];
+  count: number;
 }
