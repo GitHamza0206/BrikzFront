@@ -11,7 +11,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
-
 import {
   startWith,
   takeUntil,
@@ -38,14 +37,30 @@ export class ListLocauxComponent implements OnInit, AfterViewInit, OnDestroy {
 
   _data = [
     {
-    'codeRef' : "2",
-    'nomLocal' : "3",
-    'numTitreFoncierLocal' : "4",
-    'numTitreFoncierMere' : "5",
-    'tentiemeImmeuble' : "5",
-    'tentiemeResidence' : "4",
-    }
-  ]
+      codeRef: '2',
+      nomLocal: '3',
+      numTitreFoncierLocal: '4',
+      numTitreFoncierMere: '5',
+      tentiemeImmeuble: '5',
+      tentiemeResidence: '4',
+    },
+    {
+      codeRef: '2',
+      nomLocal: '3',
+      numTitreFoncierLocal: '4',
+      numTitreFoncierMere: '5',
+      tentiemeImmeuble: '5',
+      tentiemeResidence: '4',
+    },
+    {
+      codeRef: '2',
+      nomLocal: '3',
+      numTitreFoncierLocal: '4',
+      numTitreFoncierMere: '5',
+      tentiemeImmeuble: '5',
+      tentiemeResidence: '4',
+    },
+  ];
 
   dataSource: GenericDataSource<any> = { data: this._data, count: 1 };
   displayedColumns: string[] = [
@@ -57,13 +72,19 @@ export class ListLocauxComponent implements OnInit, AfterViewInit, OnDestroy {
     'tentiemeResidence',
   ];
 
-  hey(){
-    this.router.navigateByUrl('/shell/locaux/details/1');
-
+  goToDetails(row) {
+    // ${row.id}
+    this.router.navigateByUrl(`/shell/locaux/details/1`);
   }
 
-  constructor(private router: Router, private _snackBar: MatSnackBar, private dialog: MatDialog) {}
+  constructor(
+    private router: Router,
+    private _snackBar: MatSnackBar,
+    private dialog: MatDialog
+  ) {}
+
   ngOnInit(): void {}
+
   ngAfterViewInit(): void {
     merge(this.paginator.page, this.search$)
       .pipe(

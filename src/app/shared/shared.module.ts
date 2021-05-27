@@ -16,6 +16,7 @@ import { DragUploadComponent } from './_components/drag-upload/drag-upload.compo
 import { DragUploadDirective } from './_components/drag-upload/drag-upload.directive';
 import { EditInputComponent } from './_components/add-ged-files/edit-input/edit-input.component';
 import { addGedFilesComponent } from './_components/add-ged-files/add-ged-files.component';
+import { GenericTableComponent } from './_components/generic-table/generic-table.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { addGedFilesComponent } from './_components/add-ged-files/add-ged-files.
     DashboardComponent,
     EditInputComponent,
     addGedFilesComponent,
+    GenericTableComponent,
     //? dialogs
     ConfirmationDialogComponent,
     DragUploadComponent,
@@ -57,6 +59,7 @@ import { addGedFilesComponent } from './_components/add-ged-files/add-ged-files.
     MaterialModule,
     EditInputComponent,
     addGedFilesComponent,
+    GenericTableComponent,
     // directives
     DragUploadDirective,
     // gallery
