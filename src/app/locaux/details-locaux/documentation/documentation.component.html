@@ -1,1 +1,8 @@
-<p>documentation works!</p>
+<mat-card>
+    <app-generic-table fxFlex class="generic-table" [isLoading]="isLoading" [error]="error" [dataSource]="dataSource"
+          [columns]="columns" [displayedColumns]="displayedColumns">
+        </app-generic-table>
+        <mat-paginator [length]="dataSource?.count" [pageSize]="10" [pageSizeOptions]="[10, 25, 100]">
+        </mat-paginator>
+  </mat-card>
+  

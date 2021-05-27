@@ -12,7 +12,7 @@ import {
 export class IdentificationComponent implements OnInit {
   isLoading = false;
   error: string;
-  dataSource: GenericDataSource<any> = { data: [], count: 0 };
+  dataSource: GenericDataSource<any> = { data: _dataCaracteristiquePhysique, count: 0 };
   columns: Column<any>[] = CarateristiquePhysique;
   displayedColumns = [];
   constructor() {}
@@ -25,13 +25,18 @@ export class IdentificationComponent implements OnInit {
     switch (event.index) {
       case 0:
         this.columns = CarateristiquePhysique;
+        this.dataSource.data = _dataCaracteristiquePhysique;
         break;
       case 1:
         this.columns = surface;
         break;
       case 2:
+        this.columns = dimensions;
         break;
       case 3:
+        this.columns = fusionabilite;
+        this.dataSource.data = _dataFusionabilite;
+        //this.dataSource.count = 1;
         break;
     }
 
@@ -44,118 +49,381 @@ export class IdentificationComponent implements OnInit {
   }
 }
 
+				
+									
+
+
 const CarateristiquePhysique = [
   {
-    columnDef: 'typeMisssion',
-    header: 'Type Misssion',
+    columnDef: 'chargeUtileDalle',
+    header: 'Charge utile dalle',
     selected: true,
-    cell: (e) => e.typeMisssion,
+    cell: (e) => e.chargeUtileDalle,
   },
 
   {
-    columnDef: 'intermediaire',
-    header: 'Intermediaire',
+    columnDef: 'chargeUtileDalleR1',
+    header: 'Charge utile dalle R+1',
     selected: true,
-    cell: (e) => e.intermediaire,
+    cell: (e) => e.chargeUtileDalleR1,
   },
   {
-    columnDef: 'assuré',
-    header: 'Assuré',
+    columnDef: 'puissanceDispo',
+    header: 'Puissance disponible (Kva)',
     selected: true,
-    cell: (e) => e.assuré,
+    cell: (e) => e.puissanceDispo,
   },
   {
-    columnDef: 'nPolice',
-    header: 'N Police',
+    columnDef: 'destinationImmeuble',
+    header: "Destination de l'immeuble",
     selected: true,
-    cell: (e) => e.nPolice,
+    cell: (e) => e.destinationImmeuble,
   },
   {
-    columnDef: 'nSinistre',
-    header: 'N Sinistre',
+    columnDef: 'gaineToiture',
+    header: 'Gaine vers toiture',
     selected: true,
-    cell: (e) => e.nSinistre,
+    cell: (e) => e.gaineToiture,
   },
   {
-    columnDef: 'garantieTouchee',
-    header: 'Garantie Touchee',
+    columnDef: 'reservationGrosOeuvre',
+    header: 'Réservation gros œuvres',
     selected: true,
-    cell: (e) => e.garantieTouchee,
+    cell: (e) => e.reservationGrosOeuvre,
   },
   {
-    columnDef: 'motifRejet',
-    header: 'Motif Rejet',
+    columnDef: 'equipementConduit',
+    header: 'RGO Equipement en conduits',
     selected: true,
-    cell: (e) => e.motifRejet,
+    cell: (e) => e.equipementConduit,
   },
   {
-    columnDef: 'modeDeReglement',
-    header: 'Mode De Reglement',
+    columnDef: 'disponibilite',
+    header: 'RGO Disponibilité',
     selected: true,
-    cell: (e) => e.modeDeReglement,
+    cell: (e) => e.disponibilite,
   },
   {
-    columnDef: 'noteHonorairePublié',
-    header: 'Note Honoraire Publié',
+    columnDef: 'dimensions',
+    header: 'RGO Dimensions',
     selected: true,
-    cell: (e) => e.noteHonorairePublié,
+    cell: (e) => e.dimensions,
+  },
+  {
+    columnDef: 'eenDisponibilite',
+    header: 'EEN Disponibilite',
+    selected: true,
+    cell: (e) => e.eenDisponibilite,
+  },{
+    columnDef: 'eenDimensions',
+    header: 'EEN Dimensions',
+    selected: true,
+    cell: (e) => e.eenDimensions,
   },
 ];
 
-const surface = [
+
+
+const _dataCaracteristiquePhysique = [
   {
-    columnDef: 'typeMisssion',
-    header: 'Type Misssion',
-    selected: true,
-    cell: (e) => e.typeMisssion,
+    "chargeUtileDalle" : "Voir Attestation BET" ,
+    "chargeUtileDalleR1" : "NC",
+    "puissanceDispo" : "Voir développeur",
+    "destinationImmeuble" : "Habitat",
+    "gaineToiture" : "NC",
+    "reservationGrosOeuvre" : "NC",
+    "equipementConduit" : "NC" ,
+    "disponibilite" : "NC" ,
+    "dimensions" : "NC",
+    "eenDisponibilite" : "NC",
+    "eenDimensions" : "NC"
   },
 
   {
-    columnDef: 'intermediaire',
-    header: 'Intermediaire',
-    selected: true,
-    cell: (e) => e.intermediaire,
+    "chargeUtileDalle" : "Voir Attestation BET" ,
+    "chargeUtileDalleR1" : "NC",
+    "puissanceDispo" : "Voir développeur",
+    "destinationImmeuble" : "Habitat",
+    "gaineToiture" : "NC",
+    "reservationGrosOeuvre" : "NC",
+    "equipementConduit" : "NC" ,
+    "disponibilite" : "NC" ,
+    "dimensions" : "NC",
+    "eenDisponibilite" : "NC",
+    "eenDimensions" : "NC"
   },
   {
-    columnDef: 'assuré',
-    header: 'Assuré',
-    selected: true,
-    cell: (e) => e.assuré,
+    "chargeUtileDalle" : "Voir Attestation BET" ,
+    "chargeUtileDalleR1" : "NC",
+    "puissanceDispo" : "Voir développeur",
+    "destinationImmeuble" : "Habitat",
+    "gaineToiture" : "NC",
+    "reservationGrosOeuvre" : "NC",
+    "equipementConduit" : "NC" ,
+    "disponibilite" : "NC" ,
+    "dimensions" : "NC",
+    "eenDisponibilite" : "NC",
+    "eenDimensions" : "NC"
   },
   {
-    columnDef: 'nPolice',
-    header: 'N Police',
-    selected: true,
-    cell: (e) => e.nPolice,
+    "chargeUtileDalle" : "Voir Attestation BET" ,
+    "chargeUtileDalleR1" : "NC",
+    "puissanceDispo" : "Voir développeur",
+    "destinationImmeuble" : "Habitat",
+    "gaineToiture" : "NC",
+    "reservationGrosOeuvre" : "NC",
+    "equipementConduit" : "NC" ,
+    "disponibilite" : "NC" ,
+    "dimensions" : "NC",
+    "eenDisponibilite" : "NC",
+    "eenDimensions" : "NC"
   },
   {
-    columnDef: 'nSinistre',
-    header: 'N Sinistre',
+    "chargeUtileDalle" : "Voir Attestation BET" ,
+    "chargeUtileDalleR1" : "NC",
+    "puissanceDispo" : "Voir développeur",
+    "destinationImmeuble" : "Habitat",
+    "gaineToiture" : "NC",
+    "reservationGrosOeuvre" : "NC",
+    "equipementConduit" : "NC" ,
+    "disponibilite" : "NC" ,
+    "dimensions" : "NC",
+    "eenDisponibilite" : "NC",
+    "eenDimensions" : "NC"
+  },
+];
+
+
+
+const surface = [
+  {
+    columnDef: 'surfaceCadastraleRDC',
+    header: 'Surface cadastrale RDC',
     selected: true,
-    cell: (e) => e.nSinistre,
+    cell: (e) => e.surfaceCadastraleRDC,
+  },
+
+  {
+    columnDef: 'surfaceCadastraleR1',
+    header: 'Surface cadastrale R+1',
+    selected: true,
+    cell: (e) => e.surfaceCadastraleR1,
   },
   {
-    columnDef: 'garantieTouchee',
-    header: 'Garantie Touchee',
+    columnDef: 'surfaceCadastraleRRDC',
+    header: 'Surface cadastrale réserve RDC',
     selected: true,
-    cell: (e) => e.garantieTouchee,
+    cell: (e) => e.surfaceCadastraleRRDC,
   },
   {
-    columnDef: 'motifRejet',
-    header: 'Motif Rejet',
+    columnDef: 'surfaceCadastraleRSS',
+    header: 'Surface cadastrale réserve Sous Sol',
     selected: true,
-    cell: (e) => e.motifRejet,
+    cell: (e) => e.surfaceCadastraleRSS,
   },
   {
-    columnDef: 'modeDeReglement',
-    header: 'Mode De Reglement',
+    columnDef: 'surfaceCadastraleParking',
+    header: '	Surface cadastrale Parking',
     selected: true,
-    cell: (e) => e.modeDeReglement,
+    cell: (e) => e.surfaceCadastraleParking,
   },
   {
-    columnDef: 'noteHonorairePublié',
-    header: 'Note Honoraire Publié',
+    columnDef: 'surfaceCadastraleTerrasse',
+    header: 'Surface cadastrale Terrasse',
     selected: true,
-    cell: (e) => e.noteHonorairePublié,
+    cell: (e) => e.surfaceCadastraleTerrasse,
+  },
+  {
+    columnDef: 'accesParking',
+    header: 'Accès direct au parking',
+    selected: true,
+    cell: (e) => e.accesParking,
+  },
+  {
+    columnDef: 'nbPlaceParking',
+    header: 'Nombre de places de parking',
+    selected: true,
+    cell: (e) => e.nbPlaceParking,
+  },
+  {
+    columnDef: 'situationPlaceParking',
+    header: 'Situation place parking dans les sous sols',
+    selected: true,
+    cell: (e) => e.situationPlaceParking,
+  },
+
+  {
+    columnDef: 'numPlaceParking',
+    header: 'Numéro des places de parking',
+    selected: true,
+    cell: (e) => e.numPlaceParking,
+  },
+
+  
+];
+
+const dimensions = [
+  {
+    columnDef: 'hauteurSousDalle',
+    header: 'Hauteur sous dalle',
+    selected: true,
+    cell: (e) => e.hauteurSousDalle,
+  },
+
+  {
+    columnDef: 'profondeurMoy',
+    header: 'Profondeur moyenne',
+    selected: true,
+    cell: (e) => e.profondeurMoy,
+  },
+  {
+    columnDef: 'ratioDimLP',
+    header: 'Ratio dimension L/P',
+    selected: true,
+    cell: (e) => e.ratioDimLP,
+  },
+  {
+    columnDef: 'nbFacade',
+    header: 'Nombre de façades',
+    selected: true,
+    cell: (e) => e.nbFacade,
+  },
+  {
+    columnDef: 'totalLineaireFacade',
+    header: 'Total linéaire de façade',
+    selected: true,
+    cell: (e) => e.totalLineaireFacade,
+  },
+  {
+    columnDef: 'f1Loca',
+    header: 'F1 Localisation',
+    selected: true,
+    cell: (e) => e.f1Loca,
+  },
+  {
+    columnDef: 'f1Longeur',
+    header: 'F1 Longueur',
+    selected: true,
+    cell: (e) => e.f1Longeur,
+  },
+  {
+    columnDef: 'f1Hauteur',
+    header: 'F1 Hauteur',
+    selected: true,
+    cell: (e) => e.f1Hauteur,
+  },
+  {
+    columnDef: 'f1LargeurVoie',
+    header: 'F1 Largeur voie',
+    selected: true,
+    cell: (e) => e.f1LargeurVoie,
+  },
+  {
+    columnDef: 'f2Loca',
+    header: 'F2 Localisation',
+    selected: true,
+    cell: (e) => e.f2Loca,
+  },
+  {
+    columnDef: 'f2Longueur',
+    header: 'F2 Longueur',
+    selected: true,
+    cell: (e) => e.f2Longueur,
+  },
+  {
+    columnDef: 'f2Hauteur',
+    header: 'F2 Hauteur',
+    selected: true,
+    cell: (e) => e.f2Hauteur,
+  },
+  {
+    columnDef: 'f2LargeurVoie',
+    header: 'F2 Largeur voie',
+    selected: true,
+    cell: (e) => e.f2LargeurVoie,
+  },
+  {
+    columnDef: 'f3Loca',
+    header: 'F3 Localisation',
+    selected: true,
+    cell: (e) => e.f3Loca,
+  },
+  {
+    columnDef: 'f3Longueur',
+    header: 'F3 Longueur',
+    selected: true,
+    cell: (e) => e.f3Longueur,
+  },
+  {
+    columnDef: 'f3Hauteur',
+    header: 'F3 Hauteur',
+    selected: true,
+    cell: (e) => e.f3Hauteur,
+  },
+  {
+    columnDef: 'f3LargeurVoie',
+    header: 'F3 Largeur voie',
+    selected: true,
+    cell: (e) => e.f3LargeurVoie,
+  },
+
+  {
+    columnDef: 'longeurTerasse',
+    header: 'Longeur terasse',
+    selected: true,
+    cell: (e) => e.longeurTerasse,
+  },
+
+  {
+    columnDef: 'profondeurTerasse',
+    header: 'Profondeur terasse',
+    selected: true,
+    cell: (e) => e.profondeurTerasse,
+  }
+
+  
+];
+
+const fusionabilite = [
+
+  {
+    columnDef: 'localGauche',
+    header: 'Local à gauche (vu depuis la rue)',
+    selected: true,
+    cell: (e) => e.localGauche,
+  },
+
+  {
+    columnDef: 'localConcerne',
+    header: 'Local concerné',
+    selected: true,
+    cell: (e) => e.localConcerne,
+  },
+  {
+    columnDef: 'localDroite',
+    header: 'Local à droite (vu depuis la rue)',
+    selected: true,
+    cell: (e) => e.localDroite,
+  },
+];
+const _dataFusionabilite = [
+  {
+    "localGauche" : "NC ",
+    "localConcerne" : "18-1-C01",
+    "localDroite" : "NC "
+  },
+
+  {
+    "localGauche" : "NC ",
+    "localConcerne" : "18-1-C01",
+    "localDroite" : "NC "
+  },{
+    "localGauche" : "NC ",
+    "localConcerne" : "18-1-C01",
+    "localDroite" : "NC "
+  },{
+    "localGauche" : "NC ",
+    "localConcerne" : "18-1-C01",
+    "localDroite" : "NC "
   },
 ];
