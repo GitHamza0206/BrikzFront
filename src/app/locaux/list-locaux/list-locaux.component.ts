@@ -96,3 +96,4 @@ export class ListLocauxComponent implements OnInit, AfterViewInit, OnDestroy {
     this.unSubscribe$.complete();
   }
 }
+		
