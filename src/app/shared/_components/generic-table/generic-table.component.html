@@ -1,0 +1,76 @@
+<div style="height: 100%;" fxLayout="column">
+
+  <table class="w-100 hoverable" mat-table [dataSource]="dataSource?.data">
+
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row[primaryColumn]) : null"
+          [checked]="selection.isSelected(row[primaryColumn])">
+        </mat-checkbox>
+      </td>
+      <!-- <td mat-footer-cell *matFooterCellDef></td> -->
+    </ng-container>
+
+    <ng-container *ngFor="let column of columns;" [matColumnDef]="column.columnDef">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ column.header }}
+      </th>
+      <td mat-cell *matCellDef="let element" [innerHTML]="column.cell(element)"></td>
+      <!-- <td mat-footer-cell *matFooterCellDef="let element" [innerHTML]="column.footer(element)"></td> -->
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Options </th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="actions.length === 1; else manyActionsTemp">
+          <button mat-icon-button [color]="actions[0].color" [matTooltip]="actions[0].tooltip"
+            (click)="actionClick($event, element, actions[0].actionDef)">
+            <mat-icon [svgIcon]="actions[0].icon"></mat-icon>
+          </button>
+        </ng-container>
+        <ng-template #manyActionsTemp>
+          <button mat-icon-button color="primary" matTooltip="Options" [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item *ngFor="let action of actions"
+              (click)="actionClick($event, element, action.actionDef)" [matTooltip]="action.tooltip">
+              <mat-icon *ngIf="action.icon" [svgIcon]="action.icon"></mat-icon>
+              {{action.title}}
+            </button>
+          </mat-menu>
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr [ngClass]="{'cursor-pointer': cursorPointer}" mat-row *matRowDef="let row; columns: displayedColumns;"
+      [class.selected]="selection.isSelected(row[primaryColumn])" (click)="onRowclick(row)">
+    </tr>
+    <!-- <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true;" [hidden]="!hasFooter"></tr> -->
+  </table>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <ng-container *ngIf="!isLoading; else loadingTemplate">
+      <ng-container *ngIf="error; else emptyTemplate">
+        <p class="p-3">
+          <mat-error>{{error?.error}}</mat-error>
+        </p>
+      </ng-container>
+      <ng-template #emptyTemplate>
+        <p class="p-3" *ngIf="dataSource?.data?.length == 0">{{emptyMessage}}</p>
+      </ng-template>
+    </ng-container>
+    <ng-template #loadingTemplate>
+      <p class="p-3">
+        <mat-spinner mode="indeterminate" [diameter]="32">
+        </mat-spinner>
+      </p>
+    </ng-template>
+  </div>
+
+</div>
