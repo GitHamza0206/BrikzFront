@@ -1,0 +1,8 @@
+<div *ngIf='!editMode' matTooltip="interagir pour renommer" (click)='$event.stopPropagation();editMode=true'
+  style="max-width: 90px;" class='cell text-ellipsis'>
+  {{ data }} </div>
+<div *ngIf='editMode' class="search" fxLayout="row">
+  <input onclick="this.setSelectionRange(0, this.value.length)" (focusout)="onFocusOut()"
+    (keydown.enter)='$event.target.blur()' [(ngModel)]='data' class='cellInput' appAutofocus type='text'
+    (focusout)="editMode=false" (keydown.esc)="editMode=false">
+</div>

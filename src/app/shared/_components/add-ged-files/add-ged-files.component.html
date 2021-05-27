@@ -1,0 +1,43 @@
+<h1 mat-dialog-title fxLayout="row" fxLayoutAlign="space-between">
+  Ajouter des fichiers
+</h1>
+<div mat-dialog-content style="overflow: hidden">
+  <ng-container *ngIf="!isLoading; else loadingTemplate">
+    <drag-upload (uploadedFiles)=uploadedFiles($event)></drag-upload>
+
+    <div fxLayout="column" style="overflow: auto;">
+      <div fxFlex fxLayout="row" fxLayoutGap="20px" gallerize="gallery-1" style="padding-top: 20px;">
+        <div fxLayout="column" flex="1 1 30%" fxLayoutAlign="center "
+          style="width: 120px; position: relative;padding-bottom: 20px; min-width: 100px;" *ngFor="let image of files">
+          <span class="deleteicon" fxLayout="row" fxLayoutAlign="center center">
+            <span>
+              <button (click)="deletItem(image)" class="xxs fabBtn mat-elevation-z2 unstyled-hover"
+                matTooltip="supprimer" mat-mini-fab>
+                <mat-icon>clear</mat-icon>
+              </button>
+            </span>
+          </span>
+          <img class="imgcover" fxFlex="1 1 80px" [src]="image.dataByte" [attr.imageSrc]="image.dataByte"
+            [attr.thumbSrc]="image.dataByte">
+
+          <app-edit-input class="inputedit" [data]='image.descriptionFichier' (focusOut)='saveName($event,image)'>
+          </app-edit-input>
+
+        </div>
+      </div>
+    </div>
+
+
+    <p *ngIf="error">
+      <mat-error>{{error}}</mat-error>
+    </p>
+  </ng-container>
+  <ng-template #loadingTemplate>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Annuler</button>
+  <button mat-button color="primary" (click)="ajouter()" cdkFocusInitial>Ajouter</button>
+</div>

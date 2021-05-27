@@ -1,0 +1,39 @@
+$lightBlue: #90caf9;
+
+.cell {
+  font-weight: 600;
+  cursor: text;
+  position: relative;
+  &:hover {
+    .cell:hover::before {
+      border: 2px dashed $lightBlue;
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+}
+
+.cellInput {
+  border: 2px dashed $lightBlue;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-size: medium;
+  padding: 3px;
+  margin-top: 5px;
+}
+
+.search {
+  position: relative;
+  color: #90caf9;
+  font-size: 13px;
+}
+
+.search input {
+  width: 110px;
+  height: 20px;
+}

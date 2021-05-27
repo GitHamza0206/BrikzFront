@@ -12,6 +12,10 @@ import { LightboxModule } from '@ngx-gallery/lightbox';
 import { SideBarComponent } from './_components/side-bar/side-bar.component';
 import { DashboardComponent } from './_components/dashboard/dashboard.component';
 import { ConfirmationDialogComponent } from './_dialogs/confirmation-dialog/confirmation-dialog.component';
+import { DragUploadComponent } from './_components/drag-upload/drag-upload.component';
+import { DragUploadDirective } from './_components/drag-upload/drag-upload.directive';
+import { EditInputComponent } from './_components/add-ged-files/edit-input/edit-input.component';
+import { addGedFilesComponent } from './_components/add-ged-files/add-ged-files.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +23,13 @@ import { ConfirmationDialogComponent } from './_dialogs/confirmation-dialog/conf
     NotFoundComponent,
     SideBarComponent,
     DashboardComponent,
+    EditInputComponent,
+    addGedFilesComponent,
     //? dialogs
     ConfirmationDialogComponent,
+    DragUploadComponent,
+    // directives
+    DragUploadDirective,
   ],
   imports: [
     // base module
@@ -46,7 +55,10 @@ import { ConfirmationDialogComponent } from './_dialogs/confirmation-dialog/conf
     FlexLayoutModule,
     HttpClientModule,
     MaterialModule,
-
+    EditInputComponent,
+    addGedFilesComponent,
+    // directives
+    DragUploadDirective,
     // gallery
     GalleryModule,
     GallerizeModule,
@@ -57,6 +69,7 @@ import { ConfirmationDialogComponent } from './_dialogs/confirmation-dialog/conf
     DashboardComponent,
     // dialogs
     ConfirmationDialogComponent,
+    DragUploadComponent,
   ],
 })
 export class SharedModule {}

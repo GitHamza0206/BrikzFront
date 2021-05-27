@@ -19,6 +19,8 @@ import {
   StorageItems,
 } from '../auth/_services/local-storage-jwt.service';
 import { HelpersService } from '../shared/helpers/helpers.service';
+import { addGedFilesComponent } from '../shared/_components/add-ged-files/add-ged-files.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.component.html',
@@ -38,7 +40,8 @@ export class ShellComponent implements OnDestroy {
     media: MediaMatcher,
     private breakpointObserver: BreakpointObserver,
     private _localStorageService: LocalStorageJwtService,
-    private _authenticationService: AuthenticationService
+    private _authenticationService: AuthenticationService,
+    private dialog: MatDialog
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -58,7 +61,15 @@ export class ShellComponent implements OnDestroy {
   logOut() {
     this._authenticationService.logout();
   }
-
+  addged() {
+    this.dialog
+      .open(addGedFilesComponent, {})
+      .afterClosed()
+      .subscribe((res) => {
+        if (res) {
+        }
+      });
+  }
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }

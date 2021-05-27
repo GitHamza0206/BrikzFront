@@ -26,6 +26,7 @@
     "@ngx-gallery/gallerize": "^5.0.0-beta.0",
     "@ngx-gallery/lightbox": "^5.0.0-beta.0",
     "ngx-mask": "^11.1.5",
+    "angular2-uuid": "^1.1.1",
     "ngx-mat-select-search": "^3.2.0",
     "ngx-progressbar": "^6.0.3",
     "rxjs": "~6.6.0",
