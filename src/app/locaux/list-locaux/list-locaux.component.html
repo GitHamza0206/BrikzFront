@@ -1,4 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="start start" style="width: 100%; height: calc(100vh - 60px)">
+  
+  
   <div fxFlex style="width: 100%; height: 100%">
     <mat-toolbar class="sticky-header" style="height: 45px">
       <span style="font-size: smaller">
@@ -11,73 +13,54 @@
         <mat-icon>refresh</mat-icon>
       </button>
     </mat-toolbar>
+
+
     <div fxLayout="column" style="height: calc(100vh - 105px); overflow: auto">
       <div fxFlex fxLayout="column" class="sticky-header-container">
         <table mat-table [dataSource]="dataSource.data" class="hoverable w-100">
-          <ng-container matColumnDef="DateCreation">
-            <th mat-header-cell *matHeaderCellDef>Date Création</th>
+          <ng-container matColumnDef="codeRef">
+            <th mat-header-cell *matHeaderCellDef>Code Reference Auda</th>
             <td mat-cell *matCellDef="let element">
-              {{ element?.createdAt | date: "dd/MM/yyyy à hh:mm" }}
+              {{ element?.codeRef || "-" }}
             </td>
           </ng-container>
-          <ng-container matColumnDef="raisonSocialExp">
-            <th mat-header-cell *matHeaderCellDef>Raison Social Expert</th>
+          <ng-container matColumnDef="nomLocal">
+            <th mat-header-cell *matHeaderCellDef>Nom du local</th>
             <td mat-cell *matCellDef="let element">
-              {{ element?.raisonSocialExp ||"-" }}
+              {{ element?.nomLocal ||"-" }}
             </td>
           </ng-container>
-          <ng-container matColumnDef="raisonSocial">
-            <th mat-header-cell *matHeaderCellDef>Raison Social Garage</th>
+          <ng-container matColumnDef="numTitreFoncierLocal">
+            <th mat-header-cell *matHeaderCellDef>Numéro titre foncier local</th>
             <td mat-cell *matCellDef="let element">
-              {{ element?.raisonSocial ||"-" }}
+              {{ element?.numTitreFoncierLocal ||"-" }}
             </td>
           </ng-container>
-          <ng-container matColumnDef="tel">
-            <th mat-header-cell *matHeaderCellDef>Télephone Garage</th>
+          <ng-container matColumnDef="numTitreFoncierMere">
+            <th mat-header-cell *matHeaderCellDef>Numéro titre foncier mère</th>
             <td mat-cell *matCellDef="let element">
-              {{ element?.tel ||"-" }}
+              {{ element?.numTitreFoncierMere ||"-" }}
             </td>
           </ng-container>
-          <ng-container matColumnDef="adress">
-            <th mat-header-cell *matHeaderCellDef>Adress Garage</th>
+          <ng-container matColumnDef="tentiemeImmeuble">
+            <th mat-header-cell *matHeaderCellDef>Tentième immeuble</th>
             <td mat-cell *matCellDef="let element">
-              {{ element?.adress ||"-" }}
+              {{ element?.tentiemeImmeuble ||"-" }}
             </td>
           </ng-container>
-          <ng-container matColumnDef="login">
-            <th mat-header-cell *matHeaderCellDef>Login</th>
+          <ng-container matColumnDef="tentiemeResidence">
+            <th mat-header-cell *matHeaderCellDef>Tentième résidence</th>
             <td mat-cell *matCellDef="let element">
-              {{ element?.login ||"-" }}
+              {{ element?.tentiemeResidence ||"-" }}
             </td>
           </ng-container>
-          <ng-container matColumnDef="numDossier">
-            <th mat-header-cell *matHeaderCellDef>Num Dossier</th>
-            <td mat-cell *matCellDef="let element">
-              {{ element?.numDossier ||"-" }}
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="numMission">
-            <th mat-header-cell *matHeaderCellDef>Num Mission</th>
-            <td mat-cell *matCellDef="let element">
-              {{ element?.numMission ||"-" }}
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="codeSociete">
-            <th mat-header-cell *matHeaderCellDef>Code Societe</th>
-            <td mat-cell *matCellDef="let element">
-              {{ element?.codeSociete ||"-" }}
-            </td>
-          </ng-container>
-          <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef>Email Garage</th>
-            <td mat-cell *matCellDef="let element">
-              {{ element?.email ||"-" }}
-            </td>
-          </ng-container>
+         
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" ></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="hey()"></tr>
         </table>
+
+
         <div class="p-3" fxLayout="row" fxLayoutAlign="center center" style="height: 100%">
           <ng-container *ngIf="!isLoading; else loadingTemplate">
             <ng-container *ngIf="error; else emptyTemplate">
