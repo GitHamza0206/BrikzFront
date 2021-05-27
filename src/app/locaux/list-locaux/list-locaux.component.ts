@@ -9,6 +9,9 @@ import { Subject, merge, of } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+
+
 import {
   startWith,
   takeUntil,
@@ -28,26 +31,38 @@ export class ListLocauxComponent implements OnInit, AfterViewInit, OnDestroy {
   search$ = new Subject<void>();
 
   @ViewChild(MatPaginator, { static: false })
-  paginator: MatPaginator;
+  paginator!: MatPaginator;
 
   isLoading = false;
   error: string | null = '';
 
-  dataSource: GenericDataSource<any> = { data: [], count: 0 };
+  _data = [
+    {
+    'codeRef' : "2",
+    'nomLocal' : "3",
+    'numTitreFoncierLocal' : "4",
+    'numTitreFoncierMere' : "5",
+    'tentiemeImmeuble' : "5",
+    'tentiemeResidence' : "4",
+    }
+  ]
+
+  dataSource: GenericDataSource<any> = { data: this._data, count: 1 };
   displayedColumns: string[] = [
-    'DateCreation',
-    'login',
-    'raisonSocialExp',
-    'numDossier',
-    'numMission',
-    'codeSociete',
-    'raisonSocial',
-    'tel',
-    'adress',
-    'email',
+    'codeRef',
+    'nomLocal',
+    'numTitreFoncierLocal',
+    'numTitreFoncierMere',
+    'tentiemeImmeuble',
+    'tentiemeResidence',
   ];
 
-  constructor(private _snackBar: MatSnackBar, private dialog: MatDialog) {}
+  hey(){
+    this.router.navigateByUrl('/shell/locaux/details/1');
+
+  }
+
+  constructor(private router: Router, private _snackBar: MatSnackBar, private dialog: MatDialog) {}
   ngOnInit(): void {}
   ngAfterViewInit(): void {
     merge(this.paginator.page, this.search$)
@@ -57,10 +72,10 @@ export class ListLocauxComponent implements OnInit, AfterViewInit, OnDestroy {
         tap(() => {
           this.isLoading = true;
           this.error = null;
-          this.dataSource = { ...this.dataSource, data: [] };
+          this.dataSource = { ...this.dataSource, data: this._data };
         }),
         switchMap(() =>
-          of({ data: [], count: 0 }).pipe(
+          of({ data: this._data, count: 1 }).pipe(
             catchError((err) => {
               this.isLoading = false;
               this.error = err?.error.message;
