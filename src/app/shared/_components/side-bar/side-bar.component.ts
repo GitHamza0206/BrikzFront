@@ -10,7 +10,7 @@ export class SideBarComponent implements OnInit {
     {
       icon: 'dashboard',
       name: 'Dashboard',
-      route: 'dashboard',
+      route: 'home',
       children: [],
     },
     {
@@ -36,14 +36,27 @@ export class SideBarComponent implements OnInit {
     {
       icon: 'recent_actors',
       name: 'Candidature',
-      route: 'Candidature',
-      children: [],
+      route: 'candidature',
+      children: [
+        {
+          icon: 'list',
+          name: `Formulaire`,
+          route: 'candidature/formulaire',
+          children: [],
+        },
+        {
+          icon: 'search',
+          name: 'Gestion candidat',
+          route: 'candidature/gerer',
+          children: [],
+        },
+      ],
     },
 
     {
       icon: 'room',
       name: 'Cartographie',
-      route: 'Cartographie',
+      route: 'dashboard/map',
       children: [],
     },
   ];

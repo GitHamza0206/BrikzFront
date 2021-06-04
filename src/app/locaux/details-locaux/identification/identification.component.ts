@@ -29,9 +29,11 @@ export class IdentificationComponent implements OnInit {
         break;
       case 1:
         this.columns = surface;
+        this.dataSource.data = _dataSurface;
         break;
       case 2:
         this.columns = dimensions;
+        this.dataSource.data = _dataDimension;
         break;
       case 3:
         this.columns = fusionabilite;
@@ -139,58 +141,7 @@ const _dataCaracteristiquePhysique = [
     "eenDimensions" : "NC"
   },
 
-  {
-    "chargeUtileDalle" : "Voir Attestation BET" ,
-    "chargeUtileDalleR1" : "NC",
-    "puissanceDispo" : "Voir développeur",
-    "destinationImmeuble" : "Habitat",
-    "gaineToiture" : "NC",
-    "reservationGrosOeuvre" : "NC",
-    "equipementConduit" : "NC" ,
-    "disponibilite" : "NC" ,
-    "dimensions" : "NC",
-    "eenDisponibilite" : "NC",
-    "eenDimensions" : "NC"
-  },
-  {
-    "chargeUtileDalle" : "Voir Attestation BET" ,
-    "chargeUtileDalleR1" : "NC",
-    "puissanceDispo" : "Voir développeur",
-    "destinationImmeuble" : "Habitat",
-    "gaineToiture" : "NC",
-    "reservationGrosOeuvre" : "NC",
-    "equipementConduit" : "NC" ,
-    "disponibilite" : "NC" ,
-    "dimensions" : "NC",
-    "eenDisponibilite" : "NC",
-    "eenDimensions" : "NC"
-  },
-  {
-    "chargeUtileDalle" : "Voir Attestation BET" ,
-    "chargeUtileDalleR1" : "NC",
-    "puissanceDispo" : "Voir développeur",
-    "destinationImmeuble" : "Habitat",
-    "gaineToiture" : "NC",
-    "reservationGrosOeuvre" : "NC",
-    "equipementConduit" : "NC" ,
-    "disponibilite" : "NC" ,
-    "dimensions" : "NC",
-    "eenDisponibilite" : "NC",
-    "eenDimensions" : "NC"
-  },
-  {
-    "chargeUtileDalle" : "Voir Attestation BET" ,
-    "chargeUtileDalleR1" : "NC",
-    "puissanceDispo" : "Voir développeur",
-    "destinationImmeuble" : "Habitat",
-    "gaineToiture" : "NC",
-    "reservationGrosOeuvre" : "NC",
-    "equipementConduit" : "NC" ,
-    "disponibilite" : "NC" ,
-    "dimensions" : "NC",
-    "eenDisponibilite" : "NC",
-    "eenDimensions" : "NC"
-  },
+  
 ];
 
 
@@ -261,6 +212,24 @@ const surface = [
 
   
 ];
+
+const _dataSurface = [
+  {
+    "surfaceCadastraleRDC" : "168",
+    "surfaceCadastraleR1" : "NC",
+    "surfaceCadastraleRRDC" :"NC",
+    "surfaceCadastraleRSS" : "NC ",
+    "surfaceCadastraleParking" : "28",
+    "surfaceCadastraleTerrasse" : "NC ",
+    "accesParking" : "NC",
+    "nbPlaceParking" : "manque plan",
+    "situationPlaceParking" : "SS-1",
+    "numPlaceParking" : "	PP7A"
+  }
+]
+
+								
+
 
 const dimensions = [
   {
@@ -384,6 +353,32 @@ const dimensions = [
   
 ];
 
+const _dataDimension = [
+  {
+  
+    "hauteurSousDalle" : "besoin visite" , 
+    "profondeurMoy" : "16,5",
+    "ratioDimLP" : "0,6",
+    "nbFacade" : "1",
+    "totalLineaireFacade" : "10,4",
+    "f1Loca" : "Rue Anfa Club Sud",
+    "f1Longeur" : "10,4",
+    "f1Hauteur" : "besoin visite",
+    "f1LargeurVoie" :"20",
+    "f2Loca" : "NC",
+    "f2Longueur" : "NC" ,
+    "f2Hauteur" : "NC",
+    "f2LargeurVoie" : "NC" ,
+    "f3Loca" : "NC" ,
+    "f3Longueur" : "NC" ,
+    "f3Hauteur" : "NC" ,
+    "f3LargeurVoie" : "NC" ,
+    "longeurTerasse" : "NC" ,
+    "profondeurTerasse" : "NC"
+  }
+
+];
+
 const fusionabilite = [
 
   {
@@ -406,24 +401,14 @@ const fusionabilite = [
     cell: (e) => e.localDroite,
   },
 ];
+
+
 const _dataFusionabilite = [
   {
-    "localGauche" : "NC ",
-    "localConcerne" : "18-1-C01",
+    "localGauche" : "132-C05 ",
+    "localConcerne" : "	132-C04",
     "localDroite" : "NC "
   },
 
-  {
-    "localGauche" : "NC ",
-    "localConcerne" : "18-1-C01",
-    "localDroite" : "NC "
-  },{
-    "localGauche" : "NC ",
-    "localConcerne" : "18-1-C01",
-    "localDroite" : "NC "
-  },{
-    "localGauche" : "NC ",
-    "localConcerne" : "18-1-C01",
-    "localDroite" : "NC "
-  },
+  
 ];

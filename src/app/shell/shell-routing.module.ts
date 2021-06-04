@@ -8,15 +8,27 @@ const routes: Routes = [
     path: '',
     component: ShellComponent,
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
-        path: 'dashboard',
+        path: 'home',
         component: DashboardComponent,
       },
       {
         path: 'locaux',
         loadChildren: () =>
           import('../locaux/locaux.module').then((m) => m.LocauxModule),
+      },
+
+      {
+        path: 'dashboard',
+        loadChildren: () =>
+          import('../dashboard/dashboard.module').then((m) => m.DashboardModule),
+      },
+
+      {
+        path: 'candidature',
+        loadChildren: () =>
+          import('../candidature/candidature.module').then((m) => m.CandidatureModule),
       },
     ],
   },

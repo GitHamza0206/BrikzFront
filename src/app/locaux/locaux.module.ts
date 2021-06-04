@@ -35,11 +35,9 @@ const routes: Routes = [
   declarations: [
     LocauxComponent,
     ListLocauxComponent,
-    DetailsLocauxComponent,
+    
     RecherchLocauxComponent,
-    IdentificationComponent,
-    DocumentationComponent,
-    CondidatComponent,
+    
   ],
   imports: [CommonModule, SharedModule, RouterModule.forChild(routes)],
   exports: [RouterModule],

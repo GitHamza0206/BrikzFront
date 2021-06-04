@@ -35,31 +35,18 @@ export class ListLocauxComponent implements OnInit, AfterViewInit, OnDestroy {
   isLoading = false;
   error: string | null = '';
 
+  			
+
+
   _data = [
     {
-      codeRef: '2',
-      nomLocal: '3',
-      numTitreFoncierLocal: '4',
-      numTitreFoncierMere: '5',
-      tentiemeImmeuble: '5',
-      tentiemeResidence: '4',
-    },
-    {
-      codeRef: '2',
-      nomLocal: '3',
-      numTitreFoncierLocal: '4',
-      numTitreFoncierMere: '5',
-      tentiemeImmeuble: '5',
-      tentiemeResidence: '4',
-    },
-    {
-      codeRef: '2',
-      nomLocal: '3',
-      numTitreFoncierLocal: '4',
-      numTitreFoncierMere: '5',
-      tentiemeImmeuble: '5',
-      tentiemeResidence: '4',
-    },
+      codeRef: '132-C04',
+      nomLocal: '	Walili 2',
+      numTitreFoncierLocal: '	55610/64',
+      numTitreFoncierMere: '	22695/64',
+      tentiemeImmeuble: '	7	Imm AB 313/10000',
+      tentiemeResidence: '	44/10000',
+    }
   ];
 
   dataSource: GenericDataSource<any> = { data: this._data, count: 1 };

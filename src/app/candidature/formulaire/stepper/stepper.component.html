@@ -1,0 +1,115 @@
+  <mat-horizontal-stepper [linear]="false" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Votre projet d'implatation</ng-template>
+        <mat-form-field>
+          <mat-label>Votre activité commerciale </mat-label>
+          <input type="text"
+          placeholder="Choisir "
+          aria-label="Number"
+          matInput
+          formControlName="firstCtrl"
+          [matAutocomplete]="auto">
+   <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+     <mat-option *ngFor="let option of filteredOptions | async"  [value]="option">
+       {{option}}
+     </mat-option>
+   </mat-autocomplete>
+            
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+    
+    <mat-step [stepControl]="secondBisFormGroup" label="Choisir local  ">
+        <form [formGroup]="secondBisFormGroup">
+            <app-stepper-etape2b></app-stepper-etape2b>
+        </form>
+      </mat-step>
+    
+    <!--SECOND STEP-->
+    <mat-step [stepControl]="secondFormGroup" label="Les quartiers que vous ciblez ">
+        <form [formGroup]="secondFormGroup">
+         
+            <mat-label>Sélectionnez les profils des quartiers que vous ciblez </mat-label>
+            
+  
+            <mat-chip-list aria-label="Fish selection">
+              <mat-chip color="primary" selected>Résidentiel </mat-chip>
+              <mat-chip color="primary" selected>Touriste </mat-chip>
+              <mat-chip color="primary" selected>Commercant </mat-chip>
+              <mat-chip color="primary" selected>Bureaux</mat-chip>
+            </mat-chip-list>
+  
+          
+          <div>
+            <button mat-button matStepperPrevious>Précedent </button>
+            <button mat-button matStepperNext>Suivant </button>
+          </div>
+        </form>
+      </mat-step>
+
+    <!--THIRD STEP-->
+    <mat-step [stepControl]="thirdFormGroup" label="Vos clients type ">
+        <form [formGroup]="thirdFormGroup">
+          
+            
+            <mat-label>Âge </mat-label>
+            
+  
+            <mat-chip-list aria-label="Fish selection">
+              <mat-chip color="primary" selected> 0 - 14 ans  </mat-chip>
+              <mat-chip color="primary" selected> 15 - 29 ans  </mat-chip>
+              <mat-chip color="primary" selected> 30 - 44 ans  </mat-chip>
+              <mat-chip color="primary" selected> 45 - 59 ans </mat-chip>
+              <mat-chip color="primary" selected> 60 - 74 ans  </mat-chip>
+              <mat-chip color="primary" selected> 75 et plus  </mat-chip>
+
+
+            </mat-chip-list>
+
+            
+            <mat-label>Ménages </mat-label>
+            
+  
+            <mat-chip-list aria-label="Fish selection">
+              <mat-chip color="primary" selected>Personnes seules  </mat-chip>
+              <mat-chip color="primary" selected>Familles </mat-chip>
+              <mat-chip color="primary" selected>Couple sans enfant  </mat-chip>
+            </mat-chip-list>
+
+          <div>
+            <button mat-button matStepperPrevious>Précedent </button>
+            <button mat-button matStepperNext>Suivant </button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!--FOURTH STEP -->
+      <mat-step [stepControl]="fourthFormGroup" label="Vos clients type ">
+        <form [formGroup]="fourthFormGroup">
+        <app-stepper-etape2></app-stepper-etape2>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="fifthFormGroup" label="Choisissez votre local ">
+
+        <app-stepper-etape5></app-stepper-etape5>
+
+      </mat-step>
+      
+    <mat-step>
+      <ng-template matStepLabel>Fin</ng-template>
+      
+      <app-stepper-step6></app-stepper-step6>
+
+
+      <div>
+        <button mat-button matStepperPrevious>Précedent</button>
+        <button mat-button (click)="stepper.reset()"> Valider</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+  

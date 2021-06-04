@@ -1,0 +1,168 @@
+<mat-form-field class="example-chip-list">
+    <mat-label>Type de commerce a proximité </mat-label>
+    <mat-chip-list #chipList aria-label="Commerce à proximité ">
+      <mat-chip
+        *ngFor="let fruit of fruits"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(fruit , fruits)">
+        {{fruit}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input
+        placeholder="Nouveau commerce"
+        #fruitInput
+        [formControl]="fruitCtrl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event, fruitCtrl, fruits)">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event, fruitCtrl, fruits, fruitInput )">
+      <mat-option *ngFor="let fruit of _filteredOptions | async" [value]="fruit">
+        {{fruit}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field class="example-chip-list">
+    <mat-label>Type de commerce a éviter </mat-label>
+    <mat-chip-list #chipList aria-label="Commerce à éviter ">
+      <mat-chip
+        *ngFor="let fruit of fruits2"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(fruit , fruits2)">
+        {{fruit}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input
+        placeholder="Nouveau commerce"
+        #fruitInput2
+        [formControl]="fruitCtrl2"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event, fruitCtrl2, fruits2)">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event, fruitCtrl2, fruits2, fruitInput2 )">
+      <mat-option *ngFor="let fruit of _filteredOptions2 | async" [value]="fruit">
+        {{fruit}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+<br>
+
+<mat-label>Enseignes à proximité</mat-label>
+<br>
+<mat-form-field class="example-chip-list">
+    <mat-label>Enseignes a proximité </mat-label>
+    <mat-chip-list #chipList aria-label="Commerce à proximité ">
+      <mat-chip
+        *ngFor="let fruit of fruits3"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(fruit , fruits3)">
+        {{fruit}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input
+        placeholder="Nouveau commerce"
+        #fruitInput3
+        [formControl]="fruitCtrl3"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event, fruitCtrl3, fruits3)">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event, fruitCtrl3, fruits3, fruitInput3 )">
+      <mat-option *ngFor="let fruit of _filteredOptions | async" [value]="fruit">
+        {{fruit}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field class="example-chip-list">
+    <mat-label>Enseignes a éviter </mat-label>
+    <mat-chip-list #chipList aria-label="Commerce à éviter ">
+      <mat-chip
+        *ngFor="let fruit of fruits4"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(fruit , fruits4)">
+        {{fruit}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input
+        placeholder="Nouveau commerce"
+        #fruitInput4
+        [formControl]="fruitCtrl4"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event, fruitCtrl4, fruits4)">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event, fruitCtrl4, fruits4, fruitInput4 )">
+      <mat-option *ngFor="let fruit of _filteredOptions | async" [value]="fruit">
+        {{fruit}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+
+  <br>
+  <mat-label>Point d'interêt à proximité</mat-label>
+<br>
+<mat-form-field class="example-chip-list">
+    <mat-label>Enseignes a proximité </mat-label>
+    <mat-chip-list #chipList aria-label="Point d'interêt souhaité  ">
+      <mat-chip
+        *ngFor="let fruit of fruits5"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(fruit , fruits5)">
+        {{fruit}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input
+        placeholder="Nouveau commerce"
+        #fruitInput5
+        [formControl]="fruitCtrl5"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event, fruitCtrl5, fruits5)">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event, fruitCtrl5, fruits5, fruitInput5 )">
+      <mat-option *ngFor="let fruit of _filteredOptions | async" [value]="fruit">
+        {{fruit}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field class="example-chip-list">
+    <mat-label>Enseignes a éviter </mat-label>
+    <mat-chip-list #chipList aria-label="Point d'interêt à éviter ">
+      <mat-chip
+        *ngFor="let fruit of fruits6"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(fruit , fruits6)">
+        {{fruit}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input
+        placeholder="Nouveau commerce"
+        #fruitInput6
+        [formControl]="fruitCtrl6"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event,fruitCtrl6 , fruits6 )">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event, fruitCtrl6, fruits6, fruitInput6 )">
+      <mat-option *ngFor="let fruit of _filteredOptions | async" [value]="fruit">
+        {{fruit}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>

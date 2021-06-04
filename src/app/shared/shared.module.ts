@@ -1,3 +1,5 @@
+import { DocumentationComponent } from './../locaux/details-locaux/documentation/documentation.component';
+import { DetailsLocauxComponent } from './../locaux/details-locaux/details-locaux.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material.module';
@@ -17,6 +19,10 @@ import { DragUploadDirective } from './_components/drag-upload/drag-upload.direc
 import { EditInputComponent } from './_components/add-ged-files/edit-input/edit-input.component';
 import { addGedFilesComponent } from './_components/add-ged-files/add-ged-files.component';
 import { GenericTableComponent } from './_components/generic-table/generic-table.component';
+import { ViewPdfDialogComponent } from './_components/view-pdf-dialog/view-pdf-dialog.component';
+import { AngularOpenlayersModule } from "ngx-openlayers";
+import { IdentificationComponent } from '../locaux/details-locaux/identification/identification.component';
+import { CondidatComponent } from '../locaux/details-locaux/condidat/condidat.component';
 
 @NgModule({
   declarations: [
@@ -27,11 +33,18 @@ import { GenericTableComponent } from './_components/generic-table/generic-table
     EditInputComponent,
     addGedFilesComponent,
     GenericTableComponent,
+    ViewPdfDialogComponent,
+    DetailsLocauxComponent,
+    IdentificationComponent,
+    DocumentationComponent,
+    CondidatComponent,
+    
     //? dialogs
     ConfirmationDialogComponent,
     DragUploadComponent,
     // directives
     DragUploadDirective,
+
   ],
   imports: [
     // base module
@@ -39,6 +52,9 @@ import { GenericTableComponent } from './_components/generic-table/generic-table
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    AngularOpenlayersModule,
+    
+    
     // angular - Material
     MaterialModule,
     // Libs
@@ -60,6 +76,10 @@ import { GenericTableComponent } from './_components/generic-table/generic-table
     EditInputComponent,
     addGedFilesComponent,
     GenericTableComponent,
+    DetailsLocauxComponent,
+    IdentificationComponent,
+    DocumentationComponent,
+    CondidatComponent,
     // directives
     DragUploadDirective,
     // gallery
@@ -70,6 +90,8 @@ import { GenericTableComponent } from './_components/generic-table/generic-table
     NotFoundComponent,
     SideBarComponent,
     DashboardComponent,
+    ViewPdfDialogComponent,
+    AngularOpenlayersModule,
     // dialogs
     ConfirmationDialogComponent,
     DragUploadComponent,

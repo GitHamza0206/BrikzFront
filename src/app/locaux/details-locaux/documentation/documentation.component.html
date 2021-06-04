@@ -1,8 +1,102 @@
 <mat-card>
-    <app-generic-table fxFlex class="generic-table" [isLoading]="isLoading" [error]="error" [dataSource]="dataSource"
-          [columns]="columns" [displayedColumns]="displayedColumns">
-        </app-generic-table>
-        <mat-paginator [length]="dataSource?.count" [pageSize]="10" [pageSizeOptions]="[10, 25, 100]">
-        </mat-paginator>
+      <div fxLayout="row" fxLayoutAlign="start start" style="width: 100%; height: calc(100vh - 60px)">
+
+
+            <div fxFlex style="width: 100%; height: 100%">
+              <mat-toolbar class="sticky-header" style="height: 45px">
+                <span style="font-size: smaller">
+                  Liste des locaux</span>
+                <span fxFlex></span>
+                <mat-paginator [length]="dataSource?.count" [pageSize]="100" [pageSizeOptions]="[25, 50, 100]"
+                  showFirstLastButtons>
+                </mat-paginator>
+                <button mat-icon-button matTooltip="Actualiser la liste" (click)="this.search$.next()">
+                  <mat-icon>refresh</mat-icon>
+                </button>
+              </mat-toolbar>
+          
+          
+              <div fxLayout="column" style="height: calc(100vh - 105px); overflow: auto">
+                <div fxFlex fxLayout="column" class="sticky-header-container">
+                  <table mat-table [dataSource]="dataSource.data" class="hoverable w-100">
+                    <ng-container matColumnDef="certificatPropriete">
+                      <th mat-header-cell *matHeaderCellDef>certificat de propriete</th>
+                      <td mat-cell *matCellDef="let element">
+                       <!--{{ element?.certificatPropriete || "-" }} --> 
+
+                              <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"  (click)= " element.certificatPropriete ?downloadged() : addged()">
+                                <mat-icon>
+                                    {{element.certificatPropriete ?'download' : 'file_upload'}}
+
+                                          
+                                </mat-icon>
+                              </button>
+
+                              <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" 
+                              [disabled] = "!element.certificatPropriete"
+                              (click)= "showDocument()">
+                                    <mat-icon>
+                                          visibility                        
+                                    </mat-icon>
+                                  </button>
+                            
+                              
+                      </td>
+                    </ng-container>
+                    <ng-container matColumnDef="planCadastralRDC">
+                      <th mat-header-cell *matHeaderCellDef>plan Cadastral RDC</th>
+                      <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"  (click)= " element.planCadastralRDC ?downloadged() : addged()">
+                          <mat-icon>
+                              {{element.planCadastralRDC ?'download' : 'file_upload'}}
+                          </mat-icon>
+                        </button>
+
+                        <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" 
+                        [disabled] = "!element.planCadastralRDC"
+                        (click)= "showDocument()">
+                              <mat-icon>
+                                    visibility                        
+                              </mat-icon>
+                            </button>
+                      </td>
+                    </ng-container>
+                    <ng-container matColumnDef="planCadastralR1">
+                      <th mat-header-cell *matHeaderCellDef>plan Cadastral R+1</th>
+                      <td mat-cell *matCellDef="let element">
+                        {{ element?.planCadastralR1 ||"-" }}
+                      </td>
+                    </ng-container>
+                    <ng-container matColumnDef="planCadastralSSOL">
+                      <th mat-header-cell *matHeaderCellDef>plan Cadastral SSOL</th>
+                      <td mat-cell *matCellDef="let element">
+                        {{ element?.planCadastralSSOL ||"-" }}
+                      </td>
+                    </ng-container>
+                              
+          
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="goToDetails(row)"></tr>
+                  </table>
+          
+          
+                  <div class="p-3" fxLayout="row" fxLayoutAlign="center center" style="height: 100%">
+                    <ng-container *ngIf="!isLoading; else loadingTemplate">
+                      <ng-container *ngIf="error; else emptyTemplate">
+                        <mat-error>{{ error }}</mat-error>
+                      </ng-container>
+                      <ng-template #emptyTemplate>
+                        <p *ngIf="dataSource?.count === 0">Aucune element .</p>
+                      </ng-template>
+                    </ng-container>
+                    <ng-template #loadingTemplate>
+                      <mat-spinner mode="indeterminate" [diameter]="32"> </mat-spinner>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
   </mat-card>
   

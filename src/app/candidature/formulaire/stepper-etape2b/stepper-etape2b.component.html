@@ -1,0 +1,26 @@
+<button 
+class="button-dl"
+mat-icon-button aria-label="Example icon button with a vertical three dot icon"  (click)= " downloadged()">
+    <mat-icon>
+        {{'download'}}
+    </mat-icon>
+  </button>
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <!-- This is the tree node template for leaf nodes -->
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+        <!-- use a disabled button to provide padding for tree leaf -->
+        <button mat-icon-button disabled></button>
+        <app-details-locaux ></app-details-locaux>
+      </mat-tree-node>
+    <!-- This is the tree node template for expandable nodes -->
+    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+      <button mat-icon-button matTreeNodeToggle
+              [attr.aria-label]="'Toggle ' + node.name">
+        <mat-icon class="mat-icon-rtl-mirror">
+          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+        </mat-icon>
+      </button>
+      {{node.name}}
+    </mat-tree-node>
+  </mat-tree>
+  
