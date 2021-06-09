@@ -5,10 +5,12 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { MapComponent } from './map/map.component';
 import { SharedModule } from '../shared/shared.module';
+import { HomeComponent } from './home/home.component';
+import { CardInfoComponent } from './home/card-info/card-info.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, MapComponent],
+  declarations: [DashboardComponent, HomeComponent, CardInfoComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,

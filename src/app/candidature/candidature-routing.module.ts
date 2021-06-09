@@ -1,3 +1,4 @@
+import { GestionCandidatComponent } from './gestion-candidat/gestion-candidat.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CandidatureComponent } from './candidature.component';
@@ -12,6 +13,11 @@ const routes: Routes = [
       {
         path: 'formulaire',
         component: FormulaireComponent,
+      },
+
+      {
+        path: 'gerer',
+        component: GestionCandidatComponent,
       },
       
     ],

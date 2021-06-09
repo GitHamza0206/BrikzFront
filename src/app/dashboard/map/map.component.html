@@ -1,2 +1,67 @@
 
-<div id="map"></div>
+
+<mat-drawer-container  class="example-container">
+  <mat-drawer #sideNav mode="side" opened="true" position="end">
+    <mat-list role="list">
+      <mat-list-item role="listitem"><strong>Nom du local </strong></mat-list-item>
+      <mat-list-item role="listitem">CO2-032</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem"><strong>Surface</strong></mat-list-item>
+      <mat-list-item role="listitem">100m2</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem"><strong>Plan cadastral</strong></mat-list-item>
+      <button 
+      (click) = "showDocument()"
+      mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>visibility</mat-icon>
+      </button>
+      <mat-list-item role="listitem"><strong>Photos local</strong></mat-list-item>
+      <mat-list-item role="listitem">
+        
+          <img src="assets/img/file1.png" width="75px" height="75px">
+          <mat-divider [vertical]="true"></mat-divider>
+          <div><img src="assets/img/file1.png" width="75px" height="75px"></div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem" >
+        <div class="example-button-row  " >
+          <a mat-raised-button href="https://www.google.com/" target="_blank" >Voir plus</a>
+        </div>
+      </mat-list-item>
+      
+    </mat-list>
+
+  </mat-drawer>
+  <mat-drawer-content >
+    <div  class ="map">
+      <agm-map #map id="mm" 
+      [latitude]="lat" 
+      [longitude]="lng"
+      [zoom] = "zoom"
+      >
+          <!-- <agm-marker *ngFor="let m of markers; let i = index" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable"></agm-marker> -->
+          <agm-marker *ngFor="let m of marker_table" [latitude]=" m.lat" [longitude]="m.lng" [label]="MAPS"
+          (markerClick)="sideNav.toggle()"
+          [mdbTooltip]="'Local : CO2-132'"
+          [title]="marker.id"
+          >
+          <agm-info-window [disableAutoPan]="true">
+            local :  <strong> m.id</strong>
+            <div class="navbar-brand">
+              <a class="navbar-item">
+                <img src="assets/img/file1.png" width="120px" height="120px">
+              </a>
+            </div>
+            </agm-info-window>
+      </agm-marker>
+      
+      </agm-map>
+      
+      </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+
+
+

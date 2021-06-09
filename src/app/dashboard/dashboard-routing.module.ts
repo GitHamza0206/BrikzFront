@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { MapComponent } from './map/map.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,10 +9,10 @@ const routes: Routes = [
     path: '',
     component: DashboardComponent,
     children: [
-      { path: '', redirectTo: 'map', pathMatch: 'full' },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
-        path: 'map',
-        component: MapComponent,
+        path: 'home',
+        component: HomeComponent,
       },
       
     ],

@@ -23,6 +23,8 @@ import { ViewPdfDialogComponent } from './_components/view-pdf-dialog/view-pdf-d
 import { AngularOpenlayersModule } from "ngx-openlayers";
 import { IdentificationComponent } from '../locaux/details-locaux/identification/identification.component';
 import { CondidatComponent } from '../locaux/details-locaux/condidat/condidat.component';
+import { AgmCoreModule } from '@agm/core';
+import { MapComponent } from '../dashboard/map/map.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { CondidatComponent } from '../locaux/details-locaux/condidat/condidat.co
     IdentificationComponent,
     DocumentationComponent,
     CondidatComponent,
+    DashboardComponent,
+    MapComponent,
     
     //? dialogs
     ConfirmationDialogComponent,
@@ -53,7 +57,7 @@ import { CondidatComponent } from '../locaux/details-locaux/condidat/condidat.co
     ReactiveFormsModule,
     RouterModule,
     AngularOpenlayersModule,
-    
+    AgmCoreModule,
     
     // angular - Material
     MaterialModule,
@@ -76,10 +80,15 @@ import { CondidatComponent } from '../locaux/details-locaux/condidat/condidat.co
     EditInputComponent,
     addGedFilesComponent,
     GenericTableComponent,
+
     DetailsLocauxComponent,
     IdentificationComponent,
     DocumentationComponent,
     CondidatComponent,
+    AgmCoreModule,
+    
+    DashboardComponent,
+    MapComponent,
     // directives
     DragUploadDirective,
     // gallery

@@ -10,10 +10,11 @@ import { StepperEtape2Component } from './formulaire/stepper-etape2/stepper-etap
 import { StepperEtape5Component } from './formulaire/stepper-etape5/stepper-etape5.component';
 import { StepperStep6Component } from './formulaire/stepper-step6/stepper-step6.component';
 import { StepperEtape2bComponent } from './formulaire/stepper-etape2b/stepper-etape2b.component';
+import { GestionCandidatComponent } from './gestion-candidat/gestion-candidat.component';
 
 
 @NgModule({
-  declarations: [CandidatureComponent, FormulaireComponent, StepperComponent, StepperEtape2Component, StepperEtape5Component, StepperStep6Component, StepperEtape2bComponent],
+  declarations: [CandidatureComponent, FormulaireComponent, StepperComponent, StepperEtape2Component, StepperEtape5Component, StepperStep6Component, StepperEtape2bComponent, GestionCandidatComponent],
   imports: [
     CommonModule,
     CandidatureRoutingModule,
