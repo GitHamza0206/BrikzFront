@@ -1,0 +1,29 @@
+.card {
+  margin-top: 0.5rem !important;
+}
+
+.card-header {
+  padding: 0.5rem 1.25rem !important;
+  background-color: #cce8fa !important;
+
+}
+
+label {
+  color: #033a82;
+}
+
+.badge-title {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  width: 200px;
+  min-width: 200px;
+  background-color: #3c9dea;
+  padding: 10px;
+  color: #ecf7ff;
+  // margin-left: -15px;
+}
+
+b {
+  font-weight: 500;
+  color: #005680;
+}

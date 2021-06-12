@@ -9,9 +9,11 @@ import XyzSource from 'ol/source/XYZ';
 import TileLayer from 'ol/layer/Tile';
     
 import { fromLonLat } from 'ol/proj';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ViewPdfDialogComponent } from 'src/app/shared/_components/view-pdf-dialog/view-pdf-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { MatSidenav } from '@angular/material/sidenav';
 
 
 @Component({
@@ -20,26 +22,47 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent  {
-
-  constructor(private dialog: MatDialog , private location: Location) { }
+  @ViewChild('sideNav') sidenav: MatSidenav;
+  constructor( 
+    private router: Router,
+    private dialog: MatDialog) { }
   marker = true;
   
-  lat = 33.563407;
-  lng = -7.653586;
-  zoom = 14;
+  lat =33.566453;
+  lng = -7.658458;
+  zoom = 16;
 
   marker_table : any[] = [{
     id : "1",
-    name :  "local 1",
-    lat : 33.563407,
-    lng : -7.653586
+    name :  "18-1-C01",
+    lat : 33.566453,
+    lng : -7.658458
   },
   {
     id : "2",
-    name :  "local 2",
-    lat : 33.581874,
-    lng : -7.619337
-  }
+    name :  "18-1-C02",
+    lat : 33.566342,
+    lng : -7.658612
+  },
+  {
+    id : "3",
+    name :  "18-1-C03",
+    lat : 33.566275,
+    lng : -7.658730
+  },
+  {
+    id : "4",
+    name :  "18-1-C04",
+    lat : 33.566679,
+    lng : -7.660880
+  },
+  {
+    id : "5",
+    name :  "18-1-C05",
+    lat : 33.566653735961,
+    lng : -7.6610322851397
+  },
+  
 ];
 
   position_data : any = {
@@ -50,23 +73,33 @@ export class MapComponent  {
   };
 
 
+
   getData(event){
     this.position_data = event;
     console.log(event);
   }
 
-  goToDetails(){
-    this.location.replace("/home");
+  toggleSide(event){
+      this.sidenav.toggle();
+
   }
+
+  
 
   showDocument(){
     this.dialog
-      .open(ViewPdfDialogComponent, { data: "https://www.usherbrooke.ca/biblio/fileadmin/sites/biblio/documents/pdf/protocoles_redaction/guide_redaction_gerontologie.pdf" , width:"80vw", height : "80vh" })
+      .open(ViewPdfDialogComponent, { data: "assets/files/fiche-commerce.pdf" , width:"80vw", height : "80vh" })
       .afterClosed()
       .subscribe((res) => {
         if (res) {
         }
       });
+
+  }
+
+  goToDetails(){
+    console.log("cicked");
+    this.router.navigateByUrl(`/shell/locaux/details/1`);
 
   }
   

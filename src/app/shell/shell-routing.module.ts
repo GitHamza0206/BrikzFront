@@ -1,3 +1,4 @@
+import { GestionCandidatComponent } from './../candidature/gestion-candidat/gestion-candidat.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from '../shared/_components/dashboard/dashboard.component';
@@ -31,6 +32,14 @@ const routes: Routes = [
         loadChildren: () =>
           import('../candidature/candidature.module').then((m) => m.CandidatureModule),
       },
+
+      {
+        path: 'gestion',
+        loadChildren: () =>
+          import('../candidature/candidature.module').then((m) => m.CandidatureModule),
+      },
+
+      
     ],
   },
 ];

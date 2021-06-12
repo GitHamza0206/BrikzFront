@@ -1,3 +1,4 @@
+<!--
 <mat-card>
   <mat-tab-group (selectedTabChange)="tabChangedHandler($event)">
     <mat-tab label="Caracteristique physique">
@@ -30,3 +31,9 @@
     </mat-tab>
   </mat-tab-group>
 </mat-card>
+-->
+
+<app-view-card [infoData]="infoCaracteristique" [DataInfoApi] = "dataCaracteristique"></app-view-card>
+<app-view-card [infoData]="infoSurface" [DataInfoApi] = "dataSurface"></app-view-card>
+<app-view-card [infoData]="infoDimension" [DataInfoApi] = "dataDimension"></app-view-card>
+<app-view-card [infoData]="infoFusionabilite" [DataInfoApi] = "dataFusionabilite"></app-view-card>

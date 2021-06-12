@@ -7,10 +7,11 @@ import { MapComponent } from './map/map.component';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { CardInfoComponent } from './home/card-info/card-info.component';
+import { DialogFilterComponent } from './home/dialog-filter/dialog-filter.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, HomeComponent, CardInfoComponent],
+  declarations: [DashboardComponent, HomeComponent, CardInfoComponent, DialogFilterComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,

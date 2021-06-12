@@ -25,6 +25,7 @@ import { IdentificationComponent } from '../locaux/details-locaux/identification
 import { CondidatComponent } from '../locaux/details-locaux/condidat/condidat.component';
 import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from '../dashboard/map/map.component';
+import { ViewCardComponent } from './_components/view-card/view-card.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { MapComponent } from '../dashboard/map/map.component';
     CondidatComponent,
     DashboardComponent,
     MapComponent,
-    
+    ViewCardComponent,
     //? dialogs
     ConfirmationDialogComponent,
     DragUploadComponent,
@@ -58,6 +59,7 @@ import { MapComponent } from '../dashboard/map/map.component';
     RouterModule,
     AngularOpenlayersModule,
     AgmCoreModule,
+    
     
     // angular - Material
     MaterialModule,
@@ -86,6 +88,8 @@ import { MapComponent } from '../dashboard/map/map.component';
     DocumentationComponent,
     CondidatComponent,
     AgmCoreModule,
+
+    ViewCardComponent,
     
     DashboardComponent,
     MapComponent,

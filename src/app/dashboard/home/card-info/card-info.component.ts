@@ -1,21 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { MatAutocomplete, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { MatAccordion } from '@angular/material/expansion';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-card-info',
   templateUrl: './card-info.component.html',
   styleUrls: ['./card-info.component.scss']
-})
+})  
+
+
 export class CardInfoComponent implements OnInit {
-
-  constructor() { }
-
   ngOnInit(): void {
   }
-  nav_position: string = 'start';
 
-  onTogglePosition(position: string) {
-    this.nav_position = position === 'start' ? 'end' : 'start';
+  constructor(){
     
   }
+  @ViewChild(MatAccordion) accordion: MatAccordion;
+
+  
 
 }

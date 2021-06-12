@@ -17,6 +17,69 @@ export class IdentificationComponent implements OnInit {
   displayedColumns = [];
   constructor() {}
 
+  infoCaracteristique = infoCaracteristique;
+  dataCaracteristique =  {
+    "chargeUtileDalle" : "Voir Attestation BET" ,
+    "chargeUtileDalleR1" : "NC",
+    "puissanceDispo" : "Voir développeur",
+    "destinationImmeuble" : "Habitat",
+    "gaineToiture" : "NC",
+    "reservationGrosOeuvre" : "NC",
+    "equipementConduit" : "NC" ,
+    "disponibilite" : "NC" ,
+    "dimensions" : "NC",
+    "eenDisponibilite" : "NC",
+    "eenDimensions" : "NC"
+  };
+
+  infoSurface = infoSurface;
+  dataSurface = {
+    "surfaceCadastraleRDC" : "168",
+    "surfaceCadastraleR1" : "NC",
+    "surfaceCadastraleRRDC" :"NC",
+    "surfaceCadastraleRSS" : "NC ",
+    "surfaceCadastraleParking" : "28",
+    "surfaceCadastraleTerrasse" : "NC ",
+    "accesParking" : "NC",
+    "nbPlaceParking" : "manque plan",
+    "situationPlaceParking" : "SS-1",
+    "numPlaceParking" : "	PP7A"
+  };
+
+  infoDimension = infoDimension;
+  dataDimension = {
+  
+    "hauteurSousDalle" : "besoin visite" , 
+    "profondeurMoy" : "16,5",
+    "ratioDimLP" : "0,6",
+    "nbFacade" : "1",
+    "totalLineaireFacade" : "10,4",
+    "f1Loca" : "Rue Anfa Club Sud",
+    "f1Longeur" : "10,4",
+    "f1Hauteur" : "besoin visite",
+    "f1LargeurVoie" :"20",
+    "f2Loca" : "NC",
+    "f2Longueur" : "NC" ,
+    "f2Hauteur" : "NC",
+    "f2LargeurVoie" : "NC" ,
+    "f3Loca" : "NC" ,
+    "f3Longueur" : "NC" ,
+    "f3Hauteur" : "NC" ,
+    "f3LargeurVoie" : "NC" ,
+    "longeurTerasse" : "NC" ,
+    "profondeurTerasse" : "NC"
+  };
+
+  infoFusionabilite = infoFusionabilite;
+  dataFusionabilite = {
+    "localGauche" : "132-C05 ",
+    "localConcerne" : "	132-C04",
+    "localDroite" : "NC "
+  };
+
+
+
+
   ngOnInit(): void {
     this.buildColumns();
   }
@@ -50,6 +113,295 @@ export class IdentificationComponent implements OnInit {
       .map((e) => e.columnDef);
   }
 }
+export const infoCaracteristique: any = {
+  title: "Charactéristique physique",
+  cols: 4,
+  rows: 1,
+  data: [
+    {
+      Libelle: "Charge utile dalle",
+      path: "",
+      attribute: "chargeUtileDalle",
+      type: "text",
+    },
+    {
+      Libelle: "Charge utile dalle R+1",
+      path: "",
+      attribute: "chargeUtileDalleR1",
+      type: "text",
+    },
+    {
+      Libelle: "Puissance disponible (Kva)",
+      path: "",
+      attribute: "puissanceDispo",
+      type: "text",
+    },
+    {
+      Libelle: "Destination de l'immeuble",
+      path: "",
+      attribute: "destinationImmeuble",
+      type: "text",
+    },
+    {
+      Libelle: "Gaine vers toiture",
+      path: "",
+      attribute: "gaineToiture",
+      type: "text",
+    },
+    {
+      Libelle: "Réservation gros œuvres",
+      path: "",
+      attribute: "reservationGrosOeuvre",
+      type: "text",
+    },
+    {
+      Libelle: "RGO Equipement en conduits",
+      path: "",
+      attribute: "equipementConduit",
+      type: "text",
+    },
+    {
+      Libelle: "RGO Disponibilité",
+      path: "",
+      attribute: "disponibilite",
+      type: "text",
+    },
+    {
+      Libelle: "RGO Dimensions",
+      path: "",
+      attribute: "dimensions",
+      type: "text",
+    },
+    {
+      Libelle: "EEN Disponibilite",
+      path: "",
+      attribute: "eenDisponibilite",
+      type: "text",
+    },
+    {
+      Libelle: "EEN Dimensions",
+      path: "",
+      attribute: "eenDimensions",
+      type: "text",
+    },
+   
+  ],
+};
+
+export const infoSurface: any = {
+  title: "Surface",
+  cols: 4,
+  rows: 1,
+  data: [
+    {
+      Libelle: "Surface cadastrale RDC",
+      path: "",
+      attribute: "surfaceCadastraleRDC",
+      type: "text",
+    },
+    {
+      Libelle: "Surface cadastrale R+1",
+      path: "",
+      attribute: "surfaceCadastraleR1",
+      type: "text",
+    },
+    {
+      Libelle: "Surface cadastrale réserve Sous Sol",
+      path: "",
+      attribute: "surfaceCadastraleRRDC",
+      type: "text",
+    },
+    {
+      Libelle: "Surface cadastrale Parking",
+      path: "",
+      attribute: "surfaceCadastraleRSS",
+      type: "text",
+    },
+    {
+      Libelle: "Surface cadastrale Terrasse",
+      path: "",
+      attribute: "surfaceCadastraleParking",
+      type: "text",
+    },
+    {
+      Libelle: "Accès direct au parking",
+      path: "",
+      attribute: "surfaceCadastraleTerrasse",
+      type: "text",
+    },
+    {
+      Libelle: "Nombre de places de parking",
+      path: "",
+      attribute: "accesParking",
+      type: "text",
+    },
+    {
+      Libelle: "Situation place parking dans les sous sols",
+      path: "",
+      attribute: "nbPlaceParking",
+      type: "text",
+    },
+    {
+      Libelle: "Numéro des places de parking",
+      path: "",
+      attribute: "situationPlaceParking",
+      type: "text",
+    },
+    {
+      Libelle: "Numéro place parking",
+      path: "",
+      attribute: "numPlaceParking",
+      type: "text",
+    }
+   
+  ],
+};
+
+export const infoDimension: any = {
+  title: "Dimension",
+  cols: 4,
+  rows: 1,
+  data: [
+    {
+      Libelle: "Hauteur sous dalle",
+      path: "",
+      attribute: "hauteurSousDalle",
+      type: "text",
+    },
+    {
+      Libelle: "Profondeur moyenne",
+      path: "",
+      attribute: "profondeurMoy",
+      type: "text",
+    },
+    {
+      Libelle: "Ratio dimension L/P",
+      path: "",
+      attribute: "ratioDimLP",
+      type: "text",
+    },
+    {
+      Libelle: "Nombre de façades",
+      path: "",
+      attribute: "nbFacade",
+      type: "text",
+    },
+    {
+      Libelle: "Total linéaire de façade",
+      path: "",
+      attribute: "totalLineaireFacade",
+      type: "text",
+    },
+    {
+      Libelle: "F1 Localisation",
+      path: "",
+      attribute: "f1Loca",
+      type: "text",
+    },
+    {
+      Libelle: "F1 Longueur",
+      path: "",
+      attribute: "f1Longeur",
+      type: "text",
+    },
+    {
+      Libelle: "F1 Hauteur",
+      path: "",
+      attribute: "f1Hauteur",
+      type: "text",
+    },
+    {
+      Libelle: "F1 Largeur voie",
+      path: "",
+      attribute: "f1LargeurVoie",
+      type: "text",
+    },
+    {
+      Libelle: "F2 Localisation",
+      path: "",
+      attribute: "f2Loca",
+      type: "text",
+    },
+    {
+      Libelle: "F2 Longueur",
+      path: "",
+      attribute: "f2Longueur",
+      type: "text",
+    },
+    {
+      Libelle: "F2 Hauteur",
+      path: "",
+      attribute: "f2Hauteur",
+      type: "text",
+    },
+    {
+      Libelle: "F2 Largeur voie",
+      path: "",
+      attribute: "f2LargeurVoie",
+      type: "text",
+    },
+    {
+      Libelle: "F3 Localisation",
+      path: "",
+      attribute: "f3Loca",
+      type: "text",
+    },
+    {
+      Libelle: "F3 Longueur",
+      path: "",
+      attribute: "f3Longueur",
+      type: "text",
+    }
+   ,{
+    Libelle: "F3 Hauteur",
+    path: "",
+    attribute: "f3Hauteur",
+    type: "text",
+  },{
+    Libelle: "F3 Largeur voie",
+    path: "",
+    attribute: "f3LargeurVoie",
+    type: "text",
+  },
+  {
+    Libelle: "Longeur terasse",
+    path: "",
+    attribute: "longeurTerasse",
+    type: "text",
+  },
+  {
+    Libelle: "Profondeur terasse",
+    path: "",
+    attribute: "profondeurTerasse",
+    type: "text",
+  }
+  ],
+};
+export const infoFusionabilite: any = {
+  title: "Fusionabilité",
+  cols: 4,
+  rows: 1,
+  data: [
+    {
+      Libelle: "Local à gauche (vu depuis la rue)",
+      path: "",
+      attribute: "localGauche",
+      type: "text",
+    },
+    {
+      Libelle: "Local concerné",
+      path: "",
+      attribute: "localConcerne",
+      type: "text",
+    },
+    {
+      Libelle: "Local à droite (vu depuis la rue)",
+      path: "",
+      attribute: "localDroite",
+      type: "text",
+    }
+  ],
+};
 
 				
 									
@@ -226,7 +578,7 @@ const _dataSurface = [
     "situationPlaceParking" : "SS-1",
     "numPlaceParking" : "	PP7A"
   }
-]
+];
 
 								
 

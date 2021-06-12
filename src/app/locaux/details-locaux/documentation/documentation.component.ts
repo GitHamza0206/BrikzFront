@@ -57,7 +57,7 @@ export class DocumentationComponent implements OnInit, OnDestroy, AfterViewInit 
   
   showDocument(){
     this.dialog
-      .open(ViewPdfDialogComponent, { data: "https://www.usherbrooke.ca/biblio/fileadmin/sites/biblio/documents/pdf/protocoles_redaction/guide_redaction_gerontologie.pdf" , width:"80vw", height : "80vh" })
+      .open(ViewPdfDialogComponent, { data: "assets/files/file1.pdf" , width:"80vw", height : "80vh" })
       .afterClosed()
       .subscribe((res) => {
         if (res) {
@@ -126,6 +126,33 @@ export class DocumentationComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 }
 
+export const infoDocumentation: any = {
+  title: "Charactéristique physique",
+  cols: 4,
+  rows: 1,
+  data: [
+    {
+      Libelle: "Charge utile dalle",
+      path: "",
+      attribute: "chargeUtileDalle",
+      type: "text",
+    },
+    {
+      Libelle: "Charge utile dalle R+1",
+      path: "",
+      attribute: "chargeUtileDalleR1",
+      type: "text",
+    },
+    {
+      Libelle: "Puissance disponible (Kva)",
+      path: "",
+      attribute: "puissanceDispo",
+      type: "text",
+    },
+    
+   
+  ],
+};
 
 
 

@@ -48,17 +48,40 @@ export class SideBarComponent implements OnInit {
           icon: 'search',
           name: 'Gestion candidat',
           route: 'candidature/gerer',
-          children: [],
+          children: [
+            {
+              icon: 'list',
+              name: `Traité`,
+              route: 'gestion/traite',
+              children: [],
+            },
+
+          ],
         },
       ],
     },
 
     {
-      icon: 'room',
-      name: 'Cartographie',
-      route: 'dashboard/map',
-      children: [],
-    },
+      icon: 'recent_actors',
+      name: 'Gestion candidat',
+      route: 'gestion',
+      children: [
+        {
+          icon: 'list',
+          name: `Traité`,
+          route: 'gestion/traite',
+          children: [],
+        },
+
+        {
+          icon: 'list',
+          name: `Nouveau`,
+          route: 'gestion/nouveau',
+          children: [],
+        },
+      ]
+      },
+   
   ];
   constructor() {}
   ngOnInit(): void {}

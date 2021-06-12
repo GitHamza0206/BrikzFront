@@ -8,3 +8,9 @@ mat-table tbody :hover{
     z-index: 90;
 
   }
+
+  .body{
+    padding: 10px 30px 10px 30px;
+    overflow: auto;
+    height: calc(100vh - 64px);
+}

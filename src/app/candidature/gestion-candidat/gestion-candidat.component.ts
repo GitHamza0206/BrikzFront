@@ -43,45 +43,14 @@ const _dataCandidat = [
 
   },
   {
-    "nomCandidat" : " Omar",
-    "tel" : "+212661000000",
-    "email" : "omar@gmail.com",
+    "nomCandidat" : " othmane",
+    "tel" : "+21266111111",
+    "email" : "othmane@gmail.com",
     "ville" : "casablanca",
-    "adresse" : "boulevard ghandi "
+    "adresse" : "boulevard sidi abdrehmane "
 
   },
-  {
-    "nomCandidat" : " Omar",
-    "tel" : "+212661000000",
-    "email" : "omar@gmail.com",
-    "ville" : "casablanca",
-    "adresse" : "boulevard ghandi "
-
-  },
-  {
-    "nomCandidat" : " Omar",
-    "tel" : "+212661000000",
-    "email" : "omar@gmail.com",
-    "ville" : "casablanca",
-    "adresse" : "boulevard ghandi "
-
-  },
-  {
-    "nomCandidat" : " Omar",
-    "tel" : "+212661000000",
-    "email" : "omar@gmail.com",
-    "ville" : "casablanca",
-    "adresse" : "boulevard ghandi "
-
-  },
-  {
-    "nomCandidat" : " Omar",
-    "tel" : "+212661000000",
-    "email" : "omar@gmail.com",
-    "ville" : "casablanca",
-    "adresse" : "boulevard ghandi "
-
-  }
+ 
   
 ];
 

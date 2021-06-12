@@ -1,0 +1,46 @@
+<ng-container class="" *ngIf="displayAllCard; else viewContent">
+  <div class="badge-title mat-elevation-z1" *ngIf="infoData.title">
+    <strong>{{ infoData.title }}</strong>
+  </div>
+  <div class="card-body">
+    <div class="form-row">
+      <ng-container *ngFor="let col of formatData">
+        <div class="form-group col-md-{{ numcols }}">
+          <label for="inputEmail4"
+            ><b>{{ col.name }}</b></label
+          >
+          <input
+            matTooltip="{{ col.body }}"
+            type="text"
+            class="form-control"
+            [value]="col.type === 'date' ? (col.body | date: 'le dd/MM/yyyy à H:mm') : col.body"
+            readonly
+          />
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>
+
+<!-- </ng-container> -->
+
+<ng-template #viewContent>
+  <ng-container *ngIf="DataInfoApi">
+    <div class="form-row">
+      <ng-container *ngFor="let col of formatData">
+        <div class="form-group col-md-{{ numcols }}">
+          <label for="inputEmail4"
+            ><b>{{ col.name }}</b></label
+          >
+          <input
+            matTooltip="{{ col.body }}"
+            type="text"
+            class="form-control"
+            [value]="col.type === 'date' ? (col.body | date: 'le dd/MM/yyyy à H:mm') : col.body"
+            readonly
+          />
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+</ng-template>
